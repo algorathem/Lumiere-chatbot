@@ -2,6 +2,11 @@ provider "azurerm" {
   features {}
 }
 
+resource "azurerm_resource_group" "rg-lumiere-prototype-v1" {
+  name     = "rg-lumiere-prototype-v1"
+  location = "southeastasia"
+}
+
 module "resource_group" {
   source = "./resource_group"
 

@@ -1,7 +1,7 @@
 [core]
     remote = mindgpt
 ['remote "mindgpt"']
-    url = azure://mindgptdvccontainer
-    account_name = mindgptdvc
+    url = azure://lumiere-prototype-data
+    account_name = stlumierev1
 ['remote "lumiere"']
     url = azure://lumiere-prototype-data
