@@ -186,22 +186,21 @@ class Scraper:
                     for url in side_bar_urls
                     if not url.endswith(side_bar_url_to_exclude)
                 ]
-        else:
-            # There's no sidebar, try an alternative layout
-            # These are special cases for some index pages:
-            # - Depression
-            # - Recreational drugs
-            # - Complementary and alternative therapies
-            navigation_list = soup.find_all("div", class_="content-area")[1].find_all(
-                ["h2", "h3"]
-            )
-            if navigation_list:
-                for heading in navigation_list:
-                    a_tag = heading.find("a")
-                    if a_tag and "href" in a_tag.attrs:
-                        side_bar_urls.append(a_tag["href"])
+        # else:
+        #     # There's no sidebar, try an alternative layout
+        #     # These are special cases for some index pages:
+        #     # - Depression
+        #     # - Recreational drugs
+        #     # - Complementary and alternative therapies
+        #     print(soup.find_all("div", class_="content-area")
+        #     )
+        #     if navigation_list:
+        #         for heading in navigation_list:
+        #             a_tag = heading.find("a")
+        #             if a_tag and "href" in a_tag.attrs:
+        #                 side_bar_urls.append(a_tag["href"])
 
-        return side_bar_urls
+        # return side_bar_urls
 
     def scrape_sub_page_data(
         self, sub_page_url: str, content_class: str

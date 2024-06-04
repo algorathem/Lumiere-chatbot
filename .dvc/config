@@ -3,3 +3,5 @@
 ['remote "mindgpt"']
     url = azure://mindgptdvccontainer
     account_name = mindgptdvc
+['remote "lumiere"']
+    url = azure://lumiere-prototype-data
