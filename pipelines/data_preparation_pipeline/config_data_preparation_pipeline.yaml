@@ -2,9 +2,9 @@ steps:
   load_data:
     enable_cache: False
     parameters:
-      data_version: "data/second_version"
+      data_version: "v3.0"
       data_postfix: "raw"
-      reference_data_version: "data/second_version"
+      reference_data_version: "v3.0"
   clean_data:
     enable_cache: False
   validate_data:
