@@ -21,13 +21,14 @@ client = AzureOpenAI(
 
 
 MESSAGES = [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Who won the world series in 2020?"},
+    {"role": "system", "content": "You are a friendly companion and comforts people when they are sad, celebrate successes with them."},
+    {"role": "user", "content": "Hello"},
     {
         "role": "assistant",
-        "content": "The Los Angeles Dodgers won the World Series in 2020.",
+        "content": "Hey, how are you doing?",
     },
-    {"role": "user", "content": "Where was it played?"},
+    {"role": "user", "content": "I am bored."},
+    {"role": "assistant", "content": "Why do you think you are bored?"}
 ]
 
 
@@ -36,6 +37,8 @@ completion = client.chat.completions.create(
     messages=MESSAGES,
     temperature=1.0
 )
+
+
 
 app = Flask(__name__)
 
@@ -49,7 +52,7 @@ def get_bot_response():
     print("Usertext: "+ userText)
     response = completion.choices[0].message.content
     print("Response: "+response)
-    return render_template("results.html",response=response)
+    return response
     
 if __name__ == "__main__":
   app.run()
