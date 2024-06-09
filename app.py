@@ -37,8 +37,6 @@ completion = client.chat.completions.create(
     temperature=1.0
 )
 
-print(completion.model_dump_json(indent=2))
-
 app = Flask(__name__)
 
 
@@ -51,7 +49,7 @@ def get_bot_response():
     print("Usertext: "+ userText)
     response = completion.choices[0].message.content
     print("Response: "+response)
-    return response
+    return render_template("results.html",response=response)
     
 if __name__ == "__main__":
   app.run()
