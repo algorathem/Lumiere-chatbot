@@ -8,9 +8,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-ENDPOINT = "b11ec81e-0219-4603-8578-9f601a0fc972"
-API_KEY = "https://polite-ground-030dc3103.4.azurestaticapps.net/api/v1"
-
+ENDPOINT = os.environ.get('ENDPOINT')
+API_KEY = os.environ.get('OPENAI_API_KEY')
 
 print (ENDPOINT)
 print (API_KEY)
@@ -47,11 +46,11 @@ def get_bot_response():
  return response
  
  
-# if __name__ == "__main__":
-#  app.run()
-HOST = os.environ.get('SERVER_HOST', 'localhost')
-try:
-    PORT = int(os.environ.get('SERVER_PORT', '8000'))
-except ValueError:
-    PORT = 8000
-app.run(HOST, PORT)
+if __name__ == "__main__":
+ app.run()
+# HOST = os.environ.get('SERVER_HOST', 'localhost')
+# try:
+#     PORT = int(os.environ.get('SERVER_PORT', '8000'))
+# except ValueError:
+#     PORT = 8000
+# app.run(HOST, PORT)
