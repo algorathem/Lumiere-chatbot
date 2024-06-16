@@ -8,8 +8,9 @@ load_dotenv()
 
 app = Flask(__name__)
 
-ENDPOINT = os.environ.get('ENDPOINT')
-API_KEY = os.environ.get('OPENAI_API_KEY')
+ENDPOINT = "b11ec81e-0219-4603-8578-9f601a0fc972"
+API_KEY = "https://polite-ground-030dc3103.4.azurestaticapps.net/api/v1"
+
 
 print (ENDPOINT)
 print (API_KEY)
