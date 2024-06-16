@@ -9,7 +9,7 @@ load_dotenv()
 app = Flask(__name__)
 
 ENDPOINT = os.environ.get('ENDPOINT')
-API_KEY = os.environ.get('API_KEY')
+API_KEY = os.environ.get('OPENAI_API_KEY')
 
 print (ENDPOINT)
 print (API_KEY)
