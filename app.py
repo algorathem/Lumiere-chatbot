@@ -46,5 +46,12 @@ def get_bot_response():
  
  return response
  
+ 
 # if __name__ == "__main__":
 #  app.run()
+HOST = environ.get('SERVER_HOST', 'localhost')
+try:
+    PORT = int(environ.get('SERVER_PORT', '8000'))
+except ValueError:
+    PORT = 8000
+app.run(HOST, PORT)
