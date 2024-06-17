@@ -16,13 +16,12 @@ print (API_KEY)
 
 API_VERSION = "2024-02-01"
 MODEL_NAME = "gpt-35-turbo"
-# MAX_CONTEXT_QUESTIONS = 10
-# MAX_TOKENS = 500
+
 
 client = AzureOpenAI(
  azure_endpoint=ENDPOINT,
  api_key=API_KEY,
- api_version=API_VERSION,
+ api_version=API_VERSION
 )
 
 MESSAGES = [
@@ -43,7 +42,8 @@ def get_bot_response():
  completion = client.chat.completions.create(
  model=MODEL_NAME,
  messages=MESSAGES,
- temperature=1.0
+ temperature=1.0,
+ max_tokens=500
  )
  response = completion.choices[0].message.content
  MESSAGES.append({ "role": "user", "content": userText })
