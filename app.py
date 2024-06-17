@@ -25,7 +25,7 @@ client = AzureOpenAI(
 )
 
 MESSAGES = [
- {"role": "system", "content": "You are a friendly companion and comforts people when they are sad, celebrate successes with them. If you are asked for your name, introduce yourself as Lumiere. If you are asked to answer questions not related to mental well-being, explain that you don't know the answer. If you are tasked to perform tasks not directly related to the user's mental state, explain that it is beyond you."},
+ {"role": "system", "content": "You are a friendly companion and comforts people when they are sad, celebrate successes with them. If you are asked for your name, introduce yourself as Lumiere. If you are asked to answer questions not related to mental well-being, explain that you don't know the answer."},
 
 ]
 
@@ -43,33 +43,13 @@ def get_bot_response():
  model=MODEL_NAME,
  messages=MESSAGES,
  temperature=1.0,
- max_tokens=500
  )
  response = completion.choices[0].message.content
  MESSAGES.append({ "role": "user", "content": userText })
  MESSAGES.append({ "role": "assistant", "content": response })
  print("Message",MESSAGES) 
-#  summary = summarize_conversation(MESSAGES)
  return response
 
-# Function to summarize the conversation
-# def summarize_conversation(messages):
-#     summary_prompt = (
-#         "Summarize the following conversation in a concise way that retains the important details:\n\n"
-#     )
-#     for message in messages:
-#         summary_prompt += f"{message['role']}: {message['content']}\n"
-
-#     summary_response = client.chat.completions.create(
-#         model=MODEL_NAME,
-#         messages=MESSAGES,
-#         temperature=1.0
-#     )
-
-#     summary = summary_response.choices[0].message['content']
-#     print(summary)
-#     return summary
- 
 
  
 if __name__ == "__main__":
