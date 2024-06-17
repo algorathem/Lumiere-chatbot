@@ -49,26 +49,26 @@ def get_bot_response():
  MESSAGES.append({ "role": "user", "content": userText })
  MESSAGES.append({ "role": "assistant", "content": response })
  print("Message",MESSAGES) 
- summary = summarize_conversation(MESSAGES)
+#  summary = summarize_conversation(MESSAGES)
  return response
 
 # Function to summarize the conversation
-def summarize_conversation(messages):
-    summary_prompt = (
-        "Summarize the following conversation in a concise way that retains the important details:\n\n"
-    )
-    for message in messages:
-        summary_prompt += f"{message['role']}: {message['content']}\n"
+# def summarize_conversation(messages):
+#     summary_prompt = (
+#         "Summarize the following conversation in a concise way that retains the important details:\n\n"
+#     )
+#     for message in messages:
+#         summary_prompt += f"{message['role']}: {message['content']}\n"
 
-    summary_response = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=MESSAGES,
-        temperature=1.0
-    )
+#     summary_response = client.chat.completions.create(
+#         model=MODEL_NAME,
+#         messages=MESSAGES,
+#         temperature=1.0
+#     )
 
-    summary = summary_response.choices[0].message['content']
-    print(summary)
-    return summary
+#     summary = summary_response.choices[0].message['content']
+#     print(summary)
+#     return summary
  
 
  
